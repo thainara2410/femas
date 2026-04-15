@@ -1,0 +1,249 @@
+/* ================================================================
+ *  ESTILOS DO SISTEMA DE ÁLBUNS — FEMAS
+ * ================================================================ */
+
+/* ── Scroll Wrapper ── */
+.album-scroll-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.album-scroll-track {
+  flex: 1;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding: 12px 4px 20px;
+  scrollbar-width: none;
+}
+.album-scroll-track::-webkit-scrollbar { display: none; }
+
+/* ── Botões de seta ── */
+.album-scroll-btn {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  background: #fff;
+  color: #333;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s, opacity 0.2s, transform 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+}
+.album-scroll-btn:hover {
+  background: #f0f0f0;
+  border-color: #999;
+  transform: scale(1.08);
+}
+.album-scroll-btn:disabled,
+.album-scroll-btn.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ── Album Grid ── */
+.album-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 24px;
+  width: max-content;
+}
+
+/* ── Album Card ── */
+.album-card {
+  width: 280px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: albumFadeUp 0.4s ease both;
+}
+.album-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.16);
+}
+@keyframes albumFadeUp {
+  from { opacity:0; transform: translateY(20px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+.album-card__thumb {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+  background: #e9ecef;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 2px;
+}
+.album-card__thumb-tile {
+  background-size: cover;
+  background-position: center;
+  background-color: #dee2e6;
+}
+.album-card__thumb-tile:first-child { grid-row: 1 / 3; }
+.album-card__thumb--single .album-card__thumb-tile {
+  grid-column: 1 / 3;
+  grid-row: 1 / 3;
+  transition: transform 0.35s ease;
+}
+.album-card:hover .album-card__thumb--single .album-card__thumb-tile { transform: scale(1.05); }
+
+.album-card__info { padding: 16px 18px 20px; }
+.album-card__info h2 { font-size: 1rem; margin-bottom: 6px; color: #1a1a2e; }
+.album-card__info p {
+  font-size: 0.83rem; color: #555; line-height: 1.5;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.album-card__badge {
+  font-size: 0.72rem; color: #fff;
+  background: rgba(0,0,0,0.55); backdrop-filter: blur(4px);
+  padding: 3px 10px; border-radius: 999px;
+  position: absolute; bottom: 8px; right: 8px;
+}
+
+/* ── Lightbox ── */
+.album-lightbox {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(10,10,20,0.96);
+  z-index: 1000;
+  flex-direction: column;
+  animation: albumFadeIn 0.2s ease;
+}
+.album-lightbox.open { display: flex; }
+@keyframes albumFadeIn { from { opacity:0; } to { opacity:1; } }
+
+/* ── Header do lightbox ── */
+.album-lightbox__header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 28px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  color: #fff;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+.album-lightbox__header strong {
+  font-size: 1.1rem;
+  margin-right: auto;
+}
+.album-lightbox__back {
+  background: none;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #fff; padding: 6px 14px; border-radius: 6px;
+  cursor: pointer; font-size: 0.85rem;
+  transition: border-color 0.2s;
+  flex-shrink: 0;
+}
+.album-lightbox__back:hover { border-color: #fff; }
+
+/* ── Abas ── */
+.album-lightbox__tabs {
+  display: flex;
+  gap: 0;
+  align-self: flex-end; /* alinha na base do header */
+}
+.album-lightbox__tab {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.45);
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  padding: 10px 22px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+.album-lightbox__tab:hover {
+  color: rgba(255,255,255,0.8);
+}
+.album-lightbox__tab.active {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+/* ── Grid de fotos/mídias ── */
+.album-lightbox__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  padding: 28px;
+  overflow-y: auto;
+  flex: 1;
+  align-content: start;
+}
+
+.lb-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: rgba(255,255,255,0.35);
+  font-size: 0.9rem;
+  padding: 60px 0;
+}
+
+.photo-item {
+  aspect-ratio: 1;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #222;
+  animation: albumFadeUp 0.35s ease both;
+}
+.photo-item img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  transition: transform 0.35s ease;
+}
+.photo-item:hover img { transform: scale(1.06); }
+
+/* ── Zoom ── */
+.photo-zoom {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.93);
+  z-index: 1100;
+  align-items: center; justify-content: center;
+  animation: albumFadeIn 0.2s ease;
+}
+.photo-zoom.open { display: flex; }
+.photo-zoom__img {
+  max-width: 88vw; max-height: 84vh;
+  object-fit: contain; border-radius: 4px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.7);
+}
+.photo-zoom__close {
+  position: absolute; top: 16px; right: 20px;
+  background: none; border: none; color: #fff;
+  font-size: 1.6rem; cursor: pointer; opacity: 0.7;
+  transition: opacity 0.2s;
+}
+.photo-zoom__close:hover { opacity: 1; }
+.photo-zoom__nav {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+  color: #fff; width: 42px; height: 42px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; font-size: 1.1rem; transition: background 0.2s;
+}
+.photo-zoom__nav:hover { background: rgba(255,255,255,0.2); }
+.photo-zoom__nav--prev { left: 20px; }
+.photo-zoom__nav--next { right: 20px; }
+.photo-zoom__caption {
+  position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
+  color: #aaa; font-size: 0.8rem; letter-spacing: 0.05em;
+}

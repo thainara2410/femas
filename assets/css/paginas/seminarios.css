@@ -1,0 +1,8 @@
+.section-seminarios{
+    padding: 40px;
+    animation: animacaoRight 0.4s;
+}
+
+.section-seminarios p{
+    text-align: justify;
+}

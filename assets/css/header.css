@@ -1,0 +1,99 @@
+body {
+  background-color: #e4ecdf;
+  background: #e4ecdf url("../image/wave.svg") no-repeat fixed;
+  background-position: bottom;
+  width: 100%;
+  background-attachment: fixed;
+  background-size: cover;
+  overflow-x: hidden;
+}
+
+#header {
+  position: -webkit-sticky; /* Necessário para funcionar no Safari */
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 15px;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.2);
+}
+
+#header img {
+  width: 100px;
+  animation: animacaoLeft 0.4s ease-in;
+}
+
+.menu {
+  justify-content: space-between;
+  align-items: center;
+  animation: animacaoRight 0.4s;
+}
+
+.menu ul li {
+  margin-right: 25px;
+}
+
+.botao-menu {
+  display: none;
+}
+
+.botao-menu {
+  position: absolute;
+  padding: 5px;
+  text-align: center;
+  color: #ffff;
+  background: rgb(11, 79, 134);
+  border: rgb(11, 79, 134) 1px solid;
+  border-radius: 50%;
+  font-size: 27px;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+  left: 25px;
+  transition: 0.4s all;
+}
+
+.botao-menu:hover {
+  background: #fff;
+  color: rgb(11, 79, 134);
+  border: 1px solid rgb(11, 79, 134);
+  box-shadow: 2px 2px 2px rgb(11, 79, 134);
+}
+
+.responsivo {
+  display: none;
+  position: absolute;
+  left: -1000px;
+  top: 140px;
+  height: 450px;
+  background: #fff;
+  padding: 50px 50px;
+  border-radius: 15px;
+  box-shadow: 3px 3px 3px rgb(227, 135, 44);
+  border: 1px solid rgb(227, 135, 44);
+  transition: 0.6s all;
+}
+
+.change,
+.nav {
+  display: none;
+  justify-content: center;
+
+  animation: animacaoLeft 0.4s ease-in;
+}
+
+.change li {
+  text-align: center;
+  margin-bottom: 40px;
+  margin-right: 10px;
+}
+
+.nav li {
+  text-align: center;
+  margin-bottom: 40px;
+  margin-right: 10px;
+}

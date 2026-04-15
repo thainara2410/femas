@@ -1,0 +1,65 @@
+.cards-glider {
+  height: 300px;
+}
+
+.conteudo {
+  opacity: 0;
+  transform: translate3d(0, 200px, 0);
+  transition: 0.3s;
+}
+.cards-glider:hover {
+  background: rgb(227, 135, 44);
+}
+.cards-glider:hover .conteudo {
+  opacity: 1;
+  color: #fff;
+  transform: translate3d(0, 0, 0);
+}
+
+.glide__arrow--left,
+.glide__arrow--right {
+  font-size: 30px;
+  color: #fff;
+  background-color: rgb(11, 79, 134);
+  border-radius: 50%;
+  border: none;
+  width: 50px;
+  height: 50px;
+  transition: 0.4s;
+}
+
+.glide__arrow--right {
+  margin-right: -50px;
+}
+
+.glide__arrow--left {
+  margin-left: -50px;
+}
+
+.glide__arrow--left:hover {
+  color: rgb(11, 79, 134);
+  background-color: #fff;
+}
+
+.glide__arrow--right:hover {
+  color: rgb(11, 79, 134);
+  background-color: #fff;
+}
+
+/* imagens palestrantes */
+.palestrante1 {
+  background: url("/assets/image/palestrantes/Priscilla\ Domingues\ EQI.jpg")
+    no-repeat;
+  background-size: cover;
+}
+
+.palestrante2 {
+  background: url("/assets/image/palestrantes/Rita\ Roes.jpg") no-repeat;
+  background-size: cover;
+}
+
+.palestrante3 {
+  background: url("/assets/image/palestrantes/Tercio\ Ambrizzi\ CAT.png.jpeg")
+    no-repeat;
+  background-size: cover;
+}

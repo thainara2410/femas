@@ -1,0 +1,31 @@
+#trabalhos {
+  padding: 30px;
+}
+
+#trabalhos h2 {
+  font-size: 20px;
+  margin: 30px 0;
+  text-align: center;
+}
+
+#trabalhos-part2 {
+  margin-top: 40px;
+}
+
+.btn-download {
+  display: block;
+  margin: auto;
+  width: 400px;
+  animation: animacaoRight 0.4s;
+}
+
+.cards-submissao {
+  width: 100%;
+  padding: 30px;
+}
+
+.cards-submissao h1 {
+  font-weight: 400;
+  font-size: 30px;
+  color: rgb(11, 79, 134);
+}

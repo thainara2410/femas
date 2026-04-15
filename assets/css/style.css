@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+/* @import "intro.css"; */
+@import "config_base.css";
+@import "header.css";
+@import "main.css";
+@import "animacao.css";
+@import "componentes/glide.core.min.css";
+@import "componentes/glide.theme.min.css";
+@import "componentes/glide.css";
+@import "paginas/cronograma.css";
+@import "paginas/trabalhos.css";
+@import "paginas/seminarios.css";
+@import "paginas/contato.css";
+@import "paginas/minicursos.css";
+@import "responsive.css";
+@import "style.css";

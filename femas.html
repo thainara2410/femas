@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FEMAS - Feira de Marketing Social e Mídias Alternativas</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/albuns.css" />
+    <link rel="shortcut icon" href="assets/image/favicon/femas.png" />
+  </head>
+  <body>
+    <!--inicio do header-->
+    <header id="header" class="container">
+      <section class="row menu">
+        <a class="logo" href="/"><img src="assets/image/femas.png" alt="" /></a>
+        <!--Criação do menu-->
+
+        <button id="botao" class="botao-menu" onclick="aparecemenu()">
+          &#9776;
+        </button>
+        <nav class="menu-botoes">
+          <ul class="row" id="ul">
+            <li>
+              <a class="btn btn-azul" href="/">Página Inicial</a>
+            </li>
+            <li>
+              <a class="btn btn-azul" href="#albuns">Edições anteriores</a>
+            </li>
+          </ul>
+        </nav>
+        <!--Fim do menu-->
+      </section>
+      <div id="menu-responsivo" class="responsivo">
+        <ul class="row nav" id="nav">
+          <li>
+            <a class="btn btn-azul" href="/">Página Inicial</a>
+          </li>
+          <li>
+            <a class="btn btn-azul" href="#albuns">Álbuns</a>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <!-- fim do header -->
+
+    <!--Inicio main-->
+    <main class="container">
+      <!-- section de inicio -->
+      <section id="inicio" class="row section-padrao">
+        <div class="texto">
+          <h1>Feira de Marketing Social e Mídias Alternativas</h1>
+          <h2>18 de Junho 2026 - Lavras</h2>
+        </div>
+        <img src="assets/image/femas.png" class="animation" />
+      </section>
+
+      <h3 class="linha">Sobre</h3>
+
+      <section id="sobre" class="row section-padrao">
+        <div class="cards cards-sobre" data-anime="left">
+          <h2>O que é a FEMAS?</h2>
+          <p>
+            A Feira de Marketing Social e Mídias Alternativas (FEMAS) é um
+            evento semestral realizado desde 2015, vinculado à disciplina de
+            Marketing Público da Universidade Federal de Lavras. A FEMAS tem
+            como objetivo aplicar na prática conceitos de Marketing de Causas
+            Sociais, promovendo mudanças positivas e conscientização na
+            comunidade de Lavras por meio de mídias alternativas.
+          </p>
+        </div>
+        <div class="cards cards-sobre" data-anime="rigth">
+          <h2>Por que participar?</h2>
+          <p>
+            Participar da FEMAS é uma oportunidade para aprender sobre o impacto
+            do marketing de causas sociais e explorar como as mídias
+            alternativas podem promover mudanças significativas na nossa
+            sociedade. O evento oferece um espaço para troca de ideias,
+            aprendizado e aplicação de conceitos de cidadania e responsabilidade
+            social, além do desenvolvimento de soluções criativas para o
+            bem-estar da comunidade.
+          </p>
+        </div>
+        <div class="cards cards-sobre" data-anime="left">
+          <h2>Como participar?</h2>
+          <p>
+            No dia 18 de junho de 2026, na Praça Dr. Augusto Silva (Praça dos Bancos),
+            estaremos com uma exposição significativa acerca da importância do
+            marketing de causas sociais e o impacto causado dentro da sociedade.
+            Será totalmente gratuito e uma exposição repleta de trocas de
+            conhecimentos e informações importantes acerca da comunidade de
+            Lavras.
+          </p>
+        </div>
+      </section>
+
+      <h3 class="linha">Local e Horário</h3>
+      <section id="participar" class="section-padrao">
+        <h1 data-anime="left">Para participar é muito simples!</h1>
+        <h3 data-anime="left">
+          Local: Praça Dr. Augusto Silva (Praça dos Bancos), Lavras, MG.
+        </h3>
+        <h3 data-anime="left">Horário: De 10:00 à 13:00.</h3>
+      </section>
+
+      <!-- =====================================================
+           SECTION DE ÁLBUNS
+           Para adicionar um novo álbum: insira um objeto no
+           array ALBUMS em assets/js/albuns.js. Nada mais
+           precisa ser alterado.
+           ===================================================== -->
+      <h3 class="linha">Edições anteriores</h3>
+
+      <section id="albuns" class="section-padrao">
+
+        <!-- Scroll horizontal de cards -->
+        <div class="album-scroll-wrapper">
+          <button class="album-scroll-btn album-scroll-btn--prev" id="album-scroll-prev" aria-label="Rolar para esquerda">&#8592;</button>
+          <div class="album-scroll-track" id="album-scroll-track">
+            <div id="album-grid" class="album-grid"></div>
+          </div>
+          <button class="album-scroll-btn album-scroll-btn--next" id="album-scroll-next" aria-label="Rolar para direita">&#8594;</button>
+        </div>
+
+        <!-- Lightbox com abas -->
+        <div id="album-lightbox" class="album-lightbox" role="dialog" aria-modal="true" aria-label="Álbum de fotos">
+          <div class="album-lightbox__header">
+            <button class="album-lightbox__back" id="lb-back" aria-label="Voltar">&#8592; Voltar</button>
+            <strong id="lb-title"></strong>
+            <!-- Abas de navegação interna -->
+            <nav class="album-lightbox__tabs" aria-label="Seções do álbum">
+              <button class="album-lightbox__tab active" data-tab="fotos">Fotos da Feira</button>
+              <button class="album-lightbox__tab" data-tab="midias">Mídias da Edição</button>
+            </nav>
+          </div>
+          <div id="lb-grid" class="album-lightbox__grid"></div>
+        </div>
+
+        <!-- Zoom de foto individual -->
+        <div id="photo-zoom" class="photo-zoom" role="dialog" aria-modal="true" aria-label="Foto ampliada">
+          <button class="photo-zoom__close" id="zoom-close" aria-label="Fechar">&#x2715;</button>
+          <button class="photo-zoom__nav photo-zoom__nav--prev" id="zoom-prev" aria-label="Anterior">&#8592;</button>
+          <img id="zoom-img" src="" alt="" class="photo-zoom__img"/>
+          <button class="photo-zoom__nav photo-zoom__nav--next" id="zoom-next" aria-label="Próxima">&#8594;</button>
+          <span id="zoom-caption" class="photo-zoom__caption"></span>
+        </div>
+
+      </section>
+
+      <h3 class="linha">Organização</h3>
+      <section id="organizacao" class="section-padrao">
+        <div class="img-femas" data-anime="left">
+          <div class="img-organizacao"></div>
+        </div>
+        <div class="card-organizacao" data-anime="rigth">
+          <p>
+            A FEMAS é organizada por uma equipe dedicada de estudantes e
+            professores do curso de Administração Pública da Universidade
+            Federal de Lavras. A comissão organizadora trabalha incansavelmente
+            para garantir que o evento seja uma plataforma eficaz para a
+            promoção do marketing de causas sociais e a conscientização da
+            comunidade. Com uma combinação de criatividade, empenho e expertise,
+            a equipe se compromete a proporcionar uma experiência enriquecedora
+            e impactante para todos os participantes.
+          </p>
+        </div>
+      </section>
+
+      <h3 class="linha">Patrocínio e Apoio</h3>
+      <section class="section-padrao section-parceria">
+
+        <h2>Apoio</h2>
+        <div class="div-parceiros row">
+          <a href="" target="_blank">
+            <div class="cards parceiroPrem">
+              <img src="assets/image/proec.png" width="100px" /></div
+          ></a>
+        </div>
+        <div class="div-parceiros row">
+          <a href="" target="_blank">
+            <div class="cards parceiros">
+              <img src="assets/image/prefeitura.png" width="100px" />
+            </div>
+          </a>
+          <a href="" target="_blank">
+            <div class="cards parceiros">
+              <img src="assets/image/tkx.png" width="100px" />
+            </div>
+          </a>
+        </div>
+      </section>
+      <h3 class="linha">Contatos</h3>
+
+      <section id="contato" class="section-padrao">
+        <div class="row" style="justify-content: center; gap: 30px; flex-wrap: wrap;">
+
+          <!-- Instagram -->
+          <div class="cards" style="text-align: center; max-width: 250px;">
+            <h2>Instagram</h2>
+            <a href="https://www.instagram.com/femas.ufla/" target="_blank">
+              <img src="assets/image/instagram.png" alt="Instagram" width="60px" />
+              <p>@femas.ufla</p>
+            </a>
+          </div>
+
+          <!-- Email -->
+          <div class="cards" style="text-align: center; max-width: 250px;">
+            <h2>Email</h2>
+            <a href="https://mail.google.com/mail/">
+              <img src="assets/image/gmail.png" alt="Email" width="60px" />
+              <p>luiza.franklin@ufla.br</p>
+            </a>
+          </div>
+
+        </div>
+      </section>
+    </main>
+    <!-- fim do main-->
+
+    <!-- inicio do footer -->
+    <footer class="container">
+      <section class="row section-padrao footer">
+        <a href="#"><img src="assets/image/femas.png" alt="" /></a>
+        <div>
+          <p>FEMAS- Comissão organizadora</p>
+          <p>
+            Desenvolvido por
+            <a href="https://www.linkedin.com/in/fellipe-brandao/"
+              >Fellipe Silvério Brandão</a
+            >
+          </p>
+          <p>
+            Atualizado por
+            <a href="https://www.linkedin.com/in/fellipe-brandao/"
+              >Thainara Rocha Cruz</a
+            >
+          </p>
+          <p class="info">Todos os Direitos Reservados</p>
+        </div>
+      </section>
+    </footer>
+    <!-- fim do footer-->
+
+    <script type="text/javascript" src="assets/js/albuns.js"></script>
+    <script type="text/javascript" src="assets/js/script.js"></script>
+  </body>
+</html>

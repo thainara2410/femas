@@ -1,0 +1,55 @@
+#palestrantes,
+#cronograma {
+  padding: 30px;
+}
+
+.dias {
+  margin: auto;
+  width: 500px;
+}
+
+.bloco-dias {
+  justify-content: space-around;
+}
+
+.bloco-dias li {
+  cursor: pointer;
+}
+
+.cards-dias {
+  width: 100px;
+  text-align: center;
+}
+
+.info-dia h2 {
+  color: rgb(227, 135, 44);
+  font-weight: 700;
+  text-align: center;
+}
+
+.cards-info {
+  width: 600px;
+  margin: auto;
+  padding: 35px;
+}
+
+.cards-info ul li {
+  list-style: circle;
+}
+
+.selecionado {
+  box-shadow: 3px 3px 3px rgb(227, 135, 44);
+  border: 1px solid rgb(227, 135, 44);
+}
+
+.dia-26 {
+  display: none;
+}
+
+.dia-27 {
+  display: none;
+}
+
+.dia-29 {
+  display: none;
+}

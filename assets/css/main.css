@@ -1,0 +1,227 @@
+/*faz a animação da imagem */
+@keyframes down {
+  0% {
+    transform: translate(0, 20px);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* Faz a imgagem da organizaçao rodar */
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#inicio {
+  justify-content: space-between;
+  align-items: center;
+}
+
+#inicio div a {
+  width: 300px;
+  display: block;
+}
+
+.section-padrao {
+  padding: 20px;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.2);
+}
+
+.texto {
+  padding: 15px;
+  animation: animacaoLeft 0.4s;
+}
+
+.texto h2 {
+  margin-bottom: 15px;
+}
+
+.animation {
+  width: 350px;
+  position: relative;
+  animation: down 1.5s infinite alternate-reverse;
+}
+
+.linha {
+  margin: 40px 0 30px;
+  font-size: 30px;
+  font-weight: 500;
+  text-align: center;
+  color: #fff;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+}
+
+.linha:before,
+.linha:after {
+  content: "";
+  width: 50px;
+  height: 3px;
+  border-radius: 20px;
+  background: #da2b6e;
+  display: inline-block;
+}
+
+.linha:before {
+  margin: 0px 15px 5px 0;
+}
+
+.linha::after {
+  margin: 0 0 5px 15px;
+}
+
+/* sobre */
+
+#sobre {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 35px;
+}
+
+.cards {
+  padding: 22px;
+  margin: 10px 0 15px;
+  width: 370px;
+  background: #fff;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 15px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
+  animation: animacaoLeft 0.4s;
+}
+.cards h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.cards:hover {
+  border: 1px solid rgb(227, 135, 44);
+  box-shadow: 3px 3px 3px rgb(227, 135, 44);
+}
+
+.cards h2 {
+  color: rgb(227, 135, 44);
+  font-weight: 500;
+}
+
+.cards-sobre {
+  width: 370px;
+}
+
+.cards-sobre a {
+  color: rgb(227, 135, 44);
+  font-weight: 500;
+  font-size: 17px;
+}
+
+/* como participar */
+
+#participar {
+  text-align: center;
+  padding: 30px;
+}
+
+#participar h3 {
+  margin-top: 20px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.btn-inscricao {
+  color: #fff;
+  background: rgb(227, 135, 44);
+  width: 250px;
+  display: block;
+  margin: 10px auto;
+}
+
+/* organizacao */
+
+#organizacao {
+  padding: 50px;
+}
+
+.img-femas {
+  position: relative;
+  margin: 0px auto 50px;
+  background: url("../image/dap.png");
+  width: 280px;
+  height: 250px;
+  background-size: cover;
+}
+
+.card-organizacao {
+  margin: auto;
+  width: 1000px;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 10px 10px 10px rgb(227, 135, 44);
+}
+
+.footer {
+  padding: 25px;
+  margin-top: 30px;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  background: rgb(11, 79, 134);
+  border-radius: 20px;
+}
+
+.footer img {
+  margin-right: 20px;
+  width: 100px;
+}
+
+.footer div p,
+a {
+  font-size: 14px;
+  color: #fff;
+}
+
+.footer a {
+  text-decoration: underline;
+}
+
+.footer .info {
+  font-size: 12px;
+}
+
+/* Parceiros */
+
+.div-parceiros {
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.parceiroPrem {
+  text-align: center;
+  width: 350px;
+  margin: 0 auto 10px;
+}
+
+.parceiroPrem img {
+  width: 150px;
+}
+
+.parceiros {
+  margin-right: 10px;
+  width: 300px;
+  text-align: center;
+}
+
+.parceiros img {
+  border-radius: 15px;
+  width: 150px;
+  height: 70px;
+}
+
+.section-parceria h2 {
+  margin: 10px;
+  text-align: center;
+}

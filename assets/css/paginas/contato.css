@@ -1,0 +1,28 @@
+.cards-contato {
+  width: 500px;
+  margin: auto;
+  padding: 30px;
+}
+
+.cards-link {
+  margin: 15px auto;
+  display: flex;
+  color: rgb(11, 79, 134);
+  align-items: center;
+}
+
+.cards-link span {
+  margin-left: 15px;
+  font-weight: 500;
+  font-size: 17px;
+  text-align: left;
+}
+
+.icone {
+  width: 50px;
+}
+
+.icone-email {
+  width: 60px;
+  margin-left: -10px;
+}
